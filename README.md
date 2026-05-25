@@ -1,4 +1,4 @@
-# AI Demo Lab — Clínica Santa Elena
+# AI Demo Lab
 
 A self-hosted AI stack demonstrating RAG (Retrieval-Augmented Generation), workflow automation, and synthetic data generation for a fictional Spanish-language medical clinic.
 
