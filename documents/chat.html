@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinica Santa Elena — Asistente</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: linear-gradient(135deg, #005b9e, #0080cc);
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  header .logo {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  header h1 { font-size: 18px; font-weight: 600; }
+  header p { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+  #chat-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .bubble {
+    max-width: 72%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    line-height: 1.5;
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+  .bubble.user {
+    align-self: flex-end;
+    background: #0080cc;
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+  .bubble.bot {
+    align-self: flex-start;
+    background: white;
+    color: #1a1a1a;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .bubble.thinking {
+    align-self: flex-start;
+    background: white;
+    color: #888;
+    font-style: italic;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .sources {
+    font-size: 11px;
+    color: #666;
+    margin-top: 6px;
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+  }
+  #input-area {
+    background: white;
+    padding: 14px 20px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #dce3ea;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+  }
+  #question {
+    flex: 1;
+    border: 1px solid #cdd5de;
+    border-radius: 24px;
+    padding: 10px 18px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #question:focus { border-color: #0080cc; }
+  #send-btn {
+    background: #0080cc;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #send-btn:hover { background: #005b9e; }
+  #send-btn:disabled { background: #99c5e8; cursor: not-allowed; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🏥</div>
+  <div>
+    <h1>Clinica Santa Elena</h1>
+    <p>Asistente de Procedimientos Internos</p>
+  </div>
+</header>
+
+<div id="chat-area">
+  <div class="bubble bot">
+    ¡Buenos dias! Soy el asistente de procedimientos de la Clinica Santa Elena. Puedo ayudarle a consultar informacion sobre nuestros protocolos internos, incluyendo admision de pacientes, administracion de medicamentos, facturacion y mas. ¿En que puedo ayudarle hoy?
+  </div>
+</div>
+
+<div id="input-area">
+  <input type="text" id="question" placeholder="Escriba su pregunta sobre procedimientos..." autocomplete="off" />
+  <button id="send-btn" onclick="sendMessage()">Enviar</button>
+</div>
+
+<script>
+  const chatArea = document.getElementById('chat-area');
+  const questionInput = document.getElementById('question');
+  const sendBtn = document.getElementById('send-btn');
+
+  questionInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  function addBubble(text, type, sources) {
+    const div = document.createElement('div');
+    div.className = `bubble ${type}`;
+    div.textContent = text;
+    if (sources && sources.length > 0) {
+      const src = document.createElement('div');
+      src.className = 'sources';
+      src.textContent = 'Fuentes: ' + sources.map(s => s.source || 'documento').join(', ');
+      div.appendChild(src);
+    }
+    chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return div;
+  }
+
+  async function sendMessage() {
+    const question = questionInput.value.trim();
+    if (!question) return;
+
+    questionInput.value = '';
+    sendBtn.disabled = true;
+
+    addBubble(question, 'user');
+    const thinking = addBubble('Consultando el manual...', 'thinking');
+
+    try {
+      const response = await fetch('http://localhost:8080/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question })
+      });
+      const data = await response.json();
+      thinking.remove();
+      addBubble(data.answer || 'No se pudo obtener respuesta.', 'bot', data.sources);
+    } catch (err) {
+      thinking.remove();
+      addBubble('Error al conectar con el servidor. Verifique que el servicio RAG este activo.', 'bot');
+    } finally {
+      sendBtn.disabled = false;
+      questionInput.focus();
+    }
+  }
+</script>
+</body>
+</html>

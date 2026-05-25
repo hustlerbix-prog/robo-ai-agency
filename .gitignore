@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+documents/*.pdf
+documents/*.json
+documents/*.csv
+documents/sample_invoices/
+documents/is03_chunks/
+lora/
+*.egg-info/
+.DS_Store

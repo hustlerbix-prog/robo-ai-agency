@@ -1,0 +1,732 @@
+=== Email 1 ===
+Category: rental_enquiry
+From: Vanessa Medina <dhernandez@example.com>
+Phone: 305 422 08 49
+Property: APT-7462
+Subject: Consulta sobre arriendo de apartamento
+
+**Asunto: Consulta sobre disponibilidad y precio - APT-7462**
+
+Estimado,
+
+Me dirijo a usted para solicitar información sobre la disponibilidad y el precio actual del inmueble APT-7462.
+
+Soy Vanessa Medina y tengo interés en conocer los detalles de esta propiedad. Me gustaría saber:
+
+- ¿Se encuentra disponible actualmente?
+- ¿Cuál es el precio de venta/alquiler?
+- ¿Cuáles son las características principales?
+- ¿Es posible agendar una visita?
+
+Agradezco de antemano su pronta respuesta. Quedo atenta a sus comentarios.
+
+Cordialmente,
+**Vanessa Medina**
+
+=== Email 2 ===
+Category: rental_enquiry
+From: César Alberto Gómez <ygarcia@example.net>
+Phone: (+57) 308 419 02 42
+Property: APT-7096
+Subject: Consulta sobre arriendo de apartamento
+
+**Asunto: Consulta sobre disponibilidad y precio - APT-7096**
+
+---
+
+Estimado equipo,
+
+Mi nombre es César Alberto Gómez y me dirijo a ustedes para solicitar información sobre el inmueble APT-7096.
+
+Me interesa conocer los siguientes detalles:
+
+- Disponibilidad actual del apartamento
+- Precio de venta o arriendo
+- Características principales
+- Documentación requerida para proceder
+
+Agradezco de antemano su pronta respuesta y quedo atento a cualquier información adicional que consideren relevante.
+
+Quedo disponible para ampliar esta consulta en los horarios que ustedes dispongan.
+
+Saludos cordiales,
+
+**César Alberto Gómez**
+
+=== Email 3 ===
+Category: rental_enquiry
+From: Juan Ortiz <chavezgustavo@example.org>
+Phone: (+57) 305 285 33 75
+Property: APT-3648
+Subject: Consulta sobre arriendo de apartamento
+
+**Asunto: Consulta sobre disponibilidad y precio - APT-3648**
+
+---
+
+Estimado equipo,
+
+Le escribo para solicitar información sobre la disponibilidad y precio del inmueble APT-3648.
+
+Me interesa conocer los detalles de esta propiedad, específicamente:
+
+- Disponibilidad actual
+- Precio de venta o renta
+- Características principales
+- Documentación requerida para proceder
+
+Agradecería que me proporcionaran esta información a la brevedad posible, ya que estoy muy interesado en esta propiedad.
+
+Quedo atento a sus comentarios.
+
+Cordialmente,
+
+**Juan Ortiz**
+
+=== Email 4 ===
+Category: rental_enquiry
+From: Francisco Peña <claudiagomez@example.com>
+Phone: +573046766221
+Property: LOC-2837
+Subject: Consulta sobre arriendo de apartamento
+
+# Email
+
+**Para:** [Correo del inmobiliario]
+
+**Asunto:** Consulta sobre disponibilidad y precio - Inmueble LOC-2837
+
+---
+
+Estimado/a,
+
+Me dirijo a usted para solicitar información sobre el inmueble LOC-2837. Tengo interés en conocer detalles sobre su disponibilidad actual y el precio de venta.
+
+Agradecería si pudiera proporcionarme:
+
+- Estado actual de disponibilidad
+- Precio solicitado
+- Fechas posibles para una visita
+
+Estoy buscando un inmueble que se ajuste a mis necesidades y considero que esta propiedad podría ser de mi interés.
+
+Quedo atenta a sus comentarios.
+
+Saludos cordiales,
+
+**Francisco Peña**
+
+=== Email 5 ===
+Category: rental_enquiry
+From: Luis Rojas Carvajal <diazgladys@example.com>
+Phone: 018004031390
+Property: APT-6422
+Subject: Información sobre disponibilidad
+
+**Asunto: Consulta sobre disponibilidad y precio - APT-6422**
+
+Estimados,
+
+Mi nombre es Luis Rojas Carvajal. Me dirijo a ustedes para solicitar información sobre el inmueble APT-6422.
+
+Quisiera conocer la disponibilidad actual de esta propiedad y su precio de venta o alquiler, según corresponda. Además, agradecería que me proporcionen detalles sobre las características principales del inmueble, como ubicación, superficie y servicios incluidos.
+
+Me encuentro interesado en esta propiedad y estoy disponible para agendar una visita en caso de ser necesario.
+
+Quedo atento a sus comentarios y espero su pronta respuesta.
+
+Cordialmente,
+**Luis Rojas Carvajal**
+
+=== Email 6 ===
+Category: rental_enquiry
+From: Laura Suárez Guerrero <ofigueroa@example.com>
+Phone: 302 912 11 91
+Property: LOC-5650
+Subject: Solicitud de información de arriendo
+
+# Email
+
+**Para:** [Correo del agente inmobiliario]
+
+**Asunto:** Consulta sobre disponibilidad y precio - LOC-5650
+
+---
+
+Estimado/a,
+
+Mi nombre es Laura Suárez Guerrero. Me interesa conocer información sobre el inmueble con código LOC-5650.
+
+Quisiera solicitar los siguientes detalles:
+
+- **Disponibilidad actual** del propiedad
+- **Precio** solicitado
+- **Condiciones de pago** disponibles
+- Posibilidad de agendar una **visita**
+
+Agradecería me contacte a la brevedad con esta información. Estoy disponible para aclarar cualquier duda adicional.
+
+Quedo atenta a sus comentarios.
+
+Cordialmente,
+
+**Laura Suárez Guerrero**
+
+[Teléfono]
+
+[Correo electrónico]
+
+=== Email 7 ===
+Category: rental_enquiry
+From: John Manuel Calderón Figueroa <salazarpatricia@example.com>
+Phone: (+57) 323 079 63 55
+Property: APT-3648
+Subject: Solicitud de información de arriendo
+
+**Asunto: Consulta sobre disponibilidad y precio - APT-3648**
+
+Estimados,
+
+Mi nombre es John Manuel Calderón Figueroa. Me dirijo a ustedes para consultar sobre el inmueble APT-3648.
+
+Quisiera conocer la disponibilidad actual de este apartamento y obtener información detallada sobre su precio. Asimismo, me gustaría saber si existen opciones de financiamiento o promociones vigentes.
+
+Quedo atento a sus comentarios y disponible para ampliar esta información o coordinar una visita al inmueble en caso de ser necesario.
+
+Agradezco de antemano su atención.
+
+Cordialmente,
+**John Manuel Calderón Figueroa**
+
+=== Email 8 ===
+Category: rental_enquiry
+From: Susana López <jaramillocatalina@example.org>
+Phone: (+57)6064645076
+Property: LOC-5650
+Subject: Solicitud de información de arriendo
+
+**Asunto: Consulta sobre disponibilidad y precio - Inmueble LOC-5650**
+
+Estimados,
+
+Mi nombre es Susana López y me interesa obtener información sobre el inmueble LOC-5650.
+
+Me gustaría conocer:
+
+- **Disponibilidad actual** del inmueble
+- **Precio** de venta o alquiler
+- **Características principales** (metros cuadrados, habitaciones, ubicación exacta)
+- **Documentación** requerida para proceder
+- **Posibilidad de visita** en los próximos días
+
+Quedo atenta a sus comentarios y disponible para cualquier aclaración adicional.
+
+Saludos cordiales,
+
+**Susana López**
+
+=== Email 9 ===
+Category: viewing_request
+From: Dario Faber Sarmiento Martínez <maria16@example.net>
+Phone: (+57) 313 383 42 78
+Property: LOC-6287
+Subject: ¿Podemos agendar una visita?
+
+**Asunto: Solicitud de visita al inmueble LOC-6287**
+
+Estimados,
+
+Le escribo para solicitar una visita al inmueble LOC-6287 durante esta semana. Me interesa conocer las características y condiciones de la propiedad.
+
+Tengo disponibilidad de lunes a viernes, en horario matutino o vespertino según sea más conveniente para ustedes.
+
+Agradezco de antemano su atención y quedo atento a confirmar la fecha y hora que mejor se ajuste.
+
+Cordialmente,
+
+**Darío Faber Sarmiento Martínez**
+
+=== Email 10 ===
+Category: viewing_request
+From: Orlando Parra Barrera <magdalenamartinez@example.net>
+Phone: +573280092550
+Property: APT-2382
+Subject: Solicitud de visita a inmueble
+
+# Email de Solicitud de Visita
+
+**Asunto:** Solicitud de visita - Inmueble APT-2382
+
+Estimado equipo,
+
+Espero se encuentren bien. Me dirijo a ustedes para solicitar una visita al inmueble APT-2382 durante esta semana.
+
+Soy Orlando Parra Barrera y tengo interés en conocer la propiedad. Soy flexible con los horarios y puedo ajustarme a su disponibilidad.
+
+Quedo atento a sus comentarios y sugerencias de fechas y horas para coordinar la cita.
+
+Agradezco de antemano su atención.
+
+Cordialmente,
+**Orlando Parra Barrera**
+
+=== Email 11 ===
+Category: viewing_request
+From: Christian César Daza <barbosaivan@example.org>
+Phone: 57 329 008 50 49
+Property: APT-8156
+Subject: Solicitud de visita a inmueble
+
+**Asunto: Solicitud de Visita - Inmueble APT-8156**
+
+Estimado/a,
+
+Espero se encuentre bien. Me dirijo a usted para solicitar una visita al inmueble APT-8156 en el transcurso de esta semana.
+
+Me interesa conocer las características y condiciones del apartamento a la brevedad posible. Tengo disponibilidad flexible durante estos días, por lo que puedo adaptarme a sus horarios.
+
+Quedo atento a sus comentarios para coordinar la cita que considere más conveniente.
+
+Agradezco su atención y colaboración.
+
+Cordialmente,
+**Christian César Daza**
+
+=== Email 12 ===
+Category: viewing_request
+From: David Alejandro Solano Fernández <victor35@example.com>
+Phone: (+57)3181154670
+Property: LOC-1530
+Subject: Solicitud de visita a inmueble
+
+**Asunto: Solicitud de Visita - Inmueble LOC-1530**
+
+Estimado Equipo,
+
+Mi nombre es David Alejandro Solano Fernández. Me dirijo a ustedes para solicitar una visita al inmueble LOC-1530 en el transcurso de esta semana.
+
+Tengo disponibilidad flexible y puedo adaptarme a los horarios que ustedes dispongan. Me interesa conocer las características y condiciones del inmueble.
+
+Quedo atento a sus sugerencias de fechas y horas.
+
+Agradezco de antemano su atención.
+
+Cordialmente,
+David Alejandro Solano Fernández
+
+=== Email 13 ===
+Category: viewing_request
+From: Alfonso Camacho Arias <martinezcarlos@example.net>
+Phone: 606 272 57 65
+Property: APT-3050
+Subject: ¿Podemos agendar una visita?
+
+**Asunto: Solicitud de visita - Inmueble APT-3050**
+
+Estimado/a,
+
+Mi nombre es Alfonso Camacho Arias. Le escribo para solicitar una visita al inmueble APT-3050 durante esta semana.
+
+Me interesa conocer la propiedad y sus características en detalle. Estoy disponible en los siguientes horarios:
+
+- Lunes a viernes: 10:00 a 14:00 hrs
+- Martes y jueves: 16:00 a 18:00 hrs
+
+Por favor, confirme la fecha y hora que mejor se adecue a su disponibilidad.
+
+Quedo atento a sus comentarios.
+
+Cordialmente,
+Alfonso Camacho Arias
+
+=== Email 14 ===
+Category: viewing_request
+From: Luis Jhon Díaz Alfonso <ricofelipe@example.org>
+Phone: 57 325 843 90 69
+Property: APT-5501
+Subject: Interesado en ver el inmueble
+
+**Asunto: Solicitud de visita - APT-5501**
+
+Estimado(a),
+
+Le saludo cordialmente. Mi nombre es Luis Jhon Díaz Alfonso y me dirijo a usted para solicitar una visita al inmueble APT-5501 en lo que resta de esta semana.
+
+Me interesa conocer las características y condiciones del apartamento. Agradecería que me confirmara la disponibilidad de horarios para realizar la inspección.
+
+Quedo atento a sus comentarios y disponible para ajustarme a sus tiempos.
+
+Cordialmente,
+Luis Jhon Díaz Alfonso
+
+=== Email 15 ===
+Category: maintenance_urgent
+From: Jesús Naranjo Chacón <rodriguezaurora@example.net>
+Phone: 3088741492
+Property: LOC-2837
+Subject: Emergencia de mantenimiento
+
+**Asunto: URGENTE - Problema crítico de mantenimiento LOC-2837**
+
+Estimado equipo de Mantenimiento,
+
+Le reporto un problema grave en la ubicación LOC-2837 que requiere atención inmediata.
+
+Se ha detectado un fallo crítico en los sistemas operativos que está comprometiendo la funcionalidad general de la instalación. Esta situación representa un riesgo importante para la continuidad de nuestras operaciones.
+
+Solicito encarecidamente que se designe un equipo técnico especializado para inspeccionar y reparar esta falla a la brevedad posible.
+
+Quedo disponible para proporcionar información adicional o facilitar el acceso al sitio según sea necesario.
+
+Agradezco su pronta gestión.
+
+Cordialmente,
+**Jesús Naranjo Chacón**
+
+=== Email 16 ===
+Category: maintenance_urgent
+From: Martha Ana Cruz Castañeda <cardenasclaudia@example.net>
+Phone: 3215317855
+Property: APT-3050
+Subject: URGENTE: Problema de plomería
+
+**Asunto: URGENTE - Problema grave de mantenimiento APT-3050**
+
+Estimado equipo de mantenimiento,
+
+Le reporto un problema grave en el apartamento APT-3050 que requiere atención inmediata.
+
+Se ha detectado una fuga importante de agua en la tuberías principales que está causando daños estructurales. El problema se agravará rápidamente si no se atiende hoy mismo.
+
+Adicionalmente, el sistema eléctrico presenta fallas intermitentes que representan un riesgo de seguridad para los residentes.
+
+Solicito que envíen un equipo técnico calificado de forma urgente para inspeccionar y reparar ambas situaciones.
+
+Quedo atenta a cualquier consulta y disponible para facilitar el acceso al apartamento.
+
+Agradezco su pronta respuesta.
+
+Cordialmente,
+**Martha Ana Cruz Castañeda**
+
+=== Email 17 ===
+Category: maintenance_urgent
+From: Daniel Sebastián Reyes <jennyjaimes@example.org>
+Phone: 3033455498
+Property: APT-1914
+Subject: Emergencia de mantenimiento
+
+**Asunto: URGENTE - Problema grave de mantenimiento APT-1914**
+
+Estimado equipo de mantenimiento,
+
+Reporto un problema grave en el apartamento 1914 que requiere atención inmediata.
+
+**Situación:** La tubería de agua principal presenta una fuga considerable que está dañando las paredes y el piso. El agua fluye continuamente hacia la unidad inferior, causando infiltraciones severas.
+
+**Riesgo:** Daño estructural y afectación a otros apartamentos.
+
+**Solicito:**
+- Intervención urgente hoy mismo
+- Cierre preventivo de la llave de agua general si es necesario
+- Evaluación de daños adicionales
+
+Por favor, confirmen recepción y horario de atención.
+
+Atentamente,
+Daniel Sebastián Reyes
+APT-1914
+Disponible: [teléfono]
+
+=== Email 18 ===
+Category: maintenance_urgent
+From: Luz Xiomara Gutiérrez Navarro <quinterofrancy@example.com>
+Phone: 01 8009 615 365
+Property: APT-3050
+Subject: Emergencia de mantenimiento
+
+**Asunto: URGENTE - Problema grave de mantenimiento APT-3050**
+
+Estimado equipo de mantenimiento,
+
+Le reporto un problema grave en el apartamento 3050 que requiere atención inmediata.
+
+Se ha detectado una fuga importante en la tubería principal de agua que está causando daños en las paredes y piso. Además, el sistema eléctrico presenta cortocircuitos intermitentes en la cocina, lo que representa un riesgo de seguridad.
+
+**Solicito urgentemente:**
+- Inspección y reparación de tuberías
+- Revisión del sistema eléctrico
+- Evaluación de daños estructurales
+
+Por favor, contactarme a la brevedad para coordinar el acceso al apartamento. Este asunto no puede esperar.
+
+Agradezco su pronta respuesta.
+
+Cordialmente,
+**Luz Xiomara Gutiérrez Navarro**
+APT-3050
+
+=== Email 19 ===
+Category: maintenance_routine
+From: Nancy Julieth Marín Correa <rojasmoises@example.com>
+Phone: (+57) 316 676 23 16
+Property: LOC-5663
+Subject: Mantenimiento de aires acondicionados
+
+**Asunto: Solicitud de Mantenimiento Rutinario - LOC-5663**
+
+---
+
+Cordial saludo,
+
+Le escribo para solicitar la programación del mantenimiento rutinario del equipo LOC-5663. 
+
+Es importante realizar esta revisión conforme a nuestros estándares de operación para garantizar el óptimo funcionamiento y prevenir inconvenientes futuros.
+
+Agradezco coordinar una fecha y hora conveniente para ejecutar este servicio.
+
+Quedo atenta a sus comentarios.
+
+Saludos cordiales,
+
+**Nancy Julieth Marín Correa**
+
+=== Email 20 ===
+Category: maintenance_routine
+From: Milena Margarita Ochoa <sebastianduarte@example.com>
+Phone: +57 320 013 96 68
+Property: LOC-2837
+Subject: Revisión programada necesaria
+
+**Asunto: Solicitud de Mantenimiento Rutinario - LOC-2837**
+
+Estimados,
+
+Le escribo para solicitar el mantenimiento rutinario de la ubicación LOC-2837. Es necesario realizar inspección, limpieza y revisión general de los sistemas para asegurar su óptimo funcionamiento.
+
+Agradezco puedan programar esta actividad a la brevedad. Si requieren información adicional o detalles específicos sobre el equipo, estoy disponible para proporcionarlos.
+
+Quedo atenta a sus comentarios.
+
+Cordialmente,
+
+**Milena Margarita Ochoa**
+
+=== Email 21 ===
+Category: maintenance_routine
+From: Elmer Reyes <andrea38@example.org>
+Phone: 3105678136
+Property: APT-6422
+Subject: Mantenimiento de aires acondicionados
+
+**Asunto: Solicitud de Mantenimiento Rutinario - APT-6422**
+
+Estimado equipo de mantenimiento,
+
+Le escribo para solicitar el mantenimiento rutinario del apartamento 6422. Es necesario realizar inspección general de instalaciones, limpieza de filtros de aire, revisión de tuberías y verificación de sistemas eléctricos.
+
+Agradezco puedan agendar esta actividad lo antes posible. Estoy disponible en horario vespertino.
+
+Quedo atento a sus comentarios.
+
+Atentamente,
+**Elmer Reyes**
+APT-6422
+
+=== Email 22 ===
+Category: maintenance_routine
+From: Leonardo Pérez Vélez <nataliacastro@example.com>
+Phone: (+57) 308 443 46 35
+Property: APT-8156
+Subject: Solicitud de mantenimiento rutinario
+
+**Asunto: Solicitud de Mantenimiento Rutinario - APT-8156**
+
+Estimados,
+
+Le solicito amablemente programar el mantenimiento rutinario para el apartamento APT-8156 en su próxima disponibilidad.
+
+Es necesario revisar:
+- Sistema de fontanería
+- Filtros de aire acondicionado
+- Inspección general de instalaciones
+
+Agradezco coordinen una fecha conveniente. Estoy disponible en horario laboral o puedo facilitar acceso a través de la administración del edificio.
+
+Quedo atento a sus comentarios.
+
+Cordialmente,
+**Leonardo Pérez Vélez**
+
+=== Email 23 ===
+Category: maintenance_routine
+From: Brayan Ramírez Silva <nancy00@example.org>
+Phone: +57 605 970 00 97
+Property: LOC-5663
+Subject: Solicitud de mantenimiento rutinario
+
+**Asunto: Solicitud de Mantenimiento Rutinario - LOC-5663**
+
+Estimados,
+
+Por este medio, solicito formalmente el mantenimiento rutinario de la ubicación LOC-5663.
+
+Es necesario realizar revisión general, limpieza y ajustes preventivos conforme a nuestro cronograma de mantenimiento establecido. Esta acción permitirá asegurar el óptimo funcionamiento del equipo y evitar futuras complicaciones operativas.
+
+Quedo atento a confirmar fecha y hora disponibles para llevar a cabo estos trabajos.
+
+Agradezco su pronta atención.
+
+Cordialmente,
+**Brayan Ramírez Silva**
+
+=== Email 24 ===
+Category: maintenance_routine
+From: Edisson Carlos Castro Torres <viviana90@example.com>
+Phone: 01 8006 047 021
+Property: APT-8156
+Subject: Mantenimiento de aires acondicionados
+
+**Asunto: Solicitud de Mantenimiento Rutinario - APT-8156**
+
+Estimado equipo de mantenimiento,
+
+Le solicito amablemente coordinar el mantenimiento rutinario del apartamento APT-8156 en su próxima disponibilidad.
+
+Se requiere revisión general de instalaciones, limpieza de áreas comunes y verificación de sistemas básicos.
+
+Quedo disponible para coordinar horarios que se ajusten a sus labores.
+
+Agradezco su atención y pronta gestión.
+
+Cordialmente,
+**Edisson Carlos Castro Torres**
+
+=== Email 25 ===
+Category: maintenance_routine
+From: Martha Inés Castillo <lauracamacho@example.org>
+Phone: 3093566551
+Property: APT-7462
+Subject: Mantenimiento de aires acondicionados
+
+**Asunto: Solicitud de Mantenimiento Rutinario – APT-7462**
+
+Estimado equipo de Mantenimiento,
+
+Por este medio, solicito coordinar el mantenimiento rutinario del apartamento APT-7462 en la brevedad posible.
+
+Es necesario realizar inspección general de instalaciones, revisión de sistemas hidráulicos y eléctricos, además de verificar el estado de puertas y cerraduras.
+
+Ruego agendar la visita en horario matutino, preferiblemente entre semana. Estaré disponible para facilitar el acceso.
+
+Agradezco su pronta atención a esta solicitud.
+
+Cordialmente,
+**Martha Inés Castillo**
+
+=== Email 26 ===
+Category: general
+From: Cecilia Garzón Rojas <luzvasquez@example.org>
+Phone: +57 320 348 56 87
+Property: LOC-1530
+Subject: Pregunta sobre contrato
+
+**Asunto: Consulta sobre inmueble LOC-1530**
+
+Estimado equipo,
+
+Espero se encuentren bien. Le escribo para solicitar información general acerca del inmueble LOC-1530. 
+
+Quisiera conocer detalles sobre su ubicación, características principales, estado actual y disponibilidad. Esta información es importante para evaluar posibles opciones en nuestro portafolio.
+
+Quedo atento a sus comentarios y agradezco de antemano su pronta respuesta.
+
+Cordialmente,
+
+**Cecilia Garzón Rojas**
+
+=== Email 27 ===
+Category: general
+From: Erika Judith Rico <hcastro@example.org>
+Phone: (+57)3274870949
+Property: APT-7933
+Subject: Pregunta sobre contrato
+
+**Asunto:** Consulta sobre el inmueble APT-7933
+
+Estimado,
+
+Mi nombre es Erika Judith Rico. Me dirijo a ustedes para realizar una consulta general respecto al inmueble APT-7933.
+
+Me gustaría conocer información detallada sobre este apartamento, incluyendo características principales, disponibilidad actual y condiciones de compra o arrendamiento.
+
+Agradezco de antemano su pronta respuesta y quedo atento a cualquier información adicional que puedan proporcionarme.
+
+Cordialmente,
+**Erika Judith Rico**
+
+=== Email 28 ===
+Category: general
+From: Patricia María Pinto <michael98@example.org>
+Phone: 313 103 30 09
+Property: APT-8156
+Subject: Información adicional requerida
+
+# Email
+
+**De:** Patricia María Pinto  
+**Asunto:** Consulta sobre inmueble APT-8156
+
+---
+
+Estimados,
+
+Le escribo para realizar una consulta general respecto al inmueble APT-8156. Me gustaría obtener información sobre las características principales de la propiedad, incluyendo su ubicación, superficie, servicios disponibles y condiciones actuales.
+
+Agradecería cualquier documentación o detalle que puedan proporcionarme al respecto.
+
+Quedo atenta a sus comentarios.
+
+Saludos cordiales,  
+**Patricia María Pinto**
+
+=== Email 29 ===
+Category: general
+From: Miguel Enrique Suárez <flor59@example.com>
+Phone: 576021019280
+Property: LOC-2837
+Subject: Información adicional requerida
+
+**Asunto: Consulta sobre inmueble LOC-2837**
+
+Estimados,
+
+Me dirijo a ustedes para solicitar información general sobre el inmueble identificado como LOC-2837. Me gustaría conocer los detalles básicos del mismo, incluyendo su ubicación, características principales y estado actual.
+
+Agradezco de antemano su atención y quedo atento a sus comentarios.
+
+Saludos cordiales,
+
+**Miguel Enrique Suárez**
+
+=== Email 30 ===
+Category: general
+From: Uriel Carlos Perdomo García <bflorez@example.org>
+Phone: 3288246150
+Property: APT-2382
+Subject: Consulta general
+
+**Asunto:** Consulta sobre inmueble APT-2382
+
+Estimado equipo,
+
+Le escribo para realizar una consulta general respecto al inmueble identificado como APT-2382. Quisiera obtener información sobre su estado actual, disponibilidad y documentación asociada.
+
+Agradecería mucho si pudieran proporcionarme los detalles necesarios para evaluar este inmueble adecuadamente.
+
+Quedo atento a sus comentarios.
+
+Cordialmente,
+
+**Uriel Carlos Perdomo García**
+

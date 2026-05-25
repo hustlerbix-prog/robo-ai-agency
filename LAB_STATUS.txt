@@ -1,0 +1,94 @@
+====================================================
+  AI DEMO LAB — BUILD STATUS
+  Date: 2026-05-04
+====================================================
+
+COMPLETED STEPS
+---------------
+[✓] Step 1 — Config files written
+    - docker-compose.yml (qdrant, n8n, rag-server)
+    - Dockerfile.rag
+    - rag_server/requirements.txt
+    - rag_server/app.py (Flask RAG API, /chat + /health)
+
+[✓] Step 2 — All scripts written
+    - scripts/ingest_documents.py
+    - scripts/generate_is01_emails.py
+    - scripts/generate_is02_invoices.py
+    - scripts/generate_is03_procedures.py
+    - scripts/generate_is04_intakes.py
+    - scripts/generate_is05_operations.py  (BUG FIXED: es_PE → es locale)
+    - scripts/generate_ao01_training_data.py
+    - scripts/check_data_quality.py
+    - scripts/generate_all_demo_data.sh
+    - documents/chat.html (Spanish chat UI)
+
+[✓] Step 3 — Docker image built
+    - gerardk0/demo-rag:latest
+
+[✓] Step 4 — Services running (podman-compose)
+    - demo-qdrant  → localhost:6333
+    - demo-n8n     → localhost:5678
+    - demo-rag     → localhost:8080
+    NOTE: Ollama runs as host systemd service on localhost:11434
+          RAG server reaches it via host.containers.internal:11434
+
+[✓] Step 5 — Ollama models present
+    - nomic-embed-text:latest
+    - qwen2.5:7b-instruct-q4_K_M
+
+[✓] Step 6 — All health checks passed
+    - Ollama:  OK
+    - Qdrant:  healthz check passed
+    - n8n:     HTTP 200
+    - RAG:     {"status":"ok","collection":"clinica_santa_elena"}
+
+[✓] Step 7 — n8n accessible at http://localhost:5678
+
+[✓] Python deps installed in ~/demo-env
+    - faker, anthropic, fpdf2, PyPDF2 all present
+
+KNOWN QUIRKS
+------------
+- docker is aliased to podman on this Bazzite machine
+- All containers need security_opt: label=disable (SELinux)
+- Use podman-compose (not docker compose) to manage services
+- Faker locale es_PE is invalid — fixed to es in generate_is05_operations.py
+- Restart services: cd ~/demo-lab && podman-compose --env-file .env up -d
+
+NEXT STEPS (in order)
+----------------------
+[ ] A. Generate demo data — run each script from ~/demo-lab with venv active:
+
+      cd ~/demo-lab
+      source ~/demo-env/bin/activate
+      set -a && source .env && set +a
+
+      python scripts/generate_is05_operations.py   # pure Faker, fast
+      python scripts/generate_is02_invoices.py     # pure fpdf2, fast
+      python scripts/generate_is01_emails.py       # Claude Haiku, ~2 min
+      python scripts/generate_is04_intakes.py      # Claude Haiku, ~2 min
+      python scripts/generate_is03_procedures.py   # Claude Opus, ~5 min
+
+[ ] B. Validate data quality
+      python scripts/check_data_quality.py
+
+[ ] C. Ingest clinic procedures into Qdrant
+      python scripts/ingest_documents.py documents/procedimientos_clinica_santa_elena.pdf
+
+[ ] D. Test RAG chat endpoint
+      curl -s -X POST http://localhost:8080/chat \
+        -H 'Content-Type: application/json' \
+        -d '{"question":"Cual es el proceso de admision de pacientes?"}'
+      -or- open documents/chat.html in browser
+
+[ ] E. Generate LoRA training data (optional, costs API credits)
+      python scripts/generate_ao01_training_data.py
+
+[ ] F. Connect Google credential in n8n (manual browser OAuth)
+      http://localhost:5678 → Settings → Credentials → New → Google
+
+[ ] G. Push RAG image to Docker Hub (optional)
+      podman push gerardk0/demo-rag:latest docker.io/gerardk0/demo-rag:latest
+
+====================================================
