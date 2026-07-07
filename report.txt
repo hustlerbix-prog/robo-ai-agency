@@ -1,0 +1,175 @@
+====================================================================
+  REPOSITORY DIAGNOSTIC REPORT — robo-ai-agency (AI Demo Lab)
+  Date: 2026-07-07
+  Scope: README.md, DEMO_GUIDE.md, LAB_STATUS.txt, all code
+          (rag_server/, scripts/, documents/chat.html,
+          docker-compose.yml, Dockerfile.rag, .env.example)
+====================================================================
+
+VERDICT
+-------
+The core RAG stack is fit for purpose and internally consistent.
+However, the documentation oversells what the data generators
+actually produce (3 of 5 datasets are NOT clinic-themed), and the
+DEMO_GUIDE has one setup gap that will break Step 8 (ingestion) on
+a fresh machine.
+
+====================================================================
+1. WHAT IS SOLID
+====================================================================
+
+[OK] RAG pipeline (rag_server/app.py + scripts/ingest_documents.py)
+     - Flow: embed question via Ollama nomic-embed-text -> top-3
+       Qdrant search -> Spanish-restricted system prompt ->
+       qwen2.5:7b chat -> answer + sources.
+     - Matches the README's described flow and response format.
+     - Env vars, defaults, and docker-compose wiring all line up
+       (host.containers.internal:11434, http://qdrant:6333).
+
+[OK] Chat UI (documents/chat.html)
+     - Self-contained, posts to localhost:8080/chat, renders
+       sources, handles errors. flask-cors is enabled server-side,
+       so opening via file:// works.
+
+[OK] docker-compose.yml / Dockerfile.rag
+     - Ports, volumes, demo-net network, SELinux
+       security_opt: label=disable, restart policies all consistent
+       with the docs.
+
+[OK] Anthropic model IDs in generators are valid and active:
+     - claude-haiku-4-5-20251001 (Haiku 4.5, full ID)
+     - claude-opus-4-5 (Opus 4.5, active alias)
+
+[OK] LAB_STATUS.txt accuracy
+     - The "pending" items are genuinely pending. The repo contains
+       only documents/is01_emails.txt (partial) and chat.html; no
+       procedure PDF, no other generated datasets. Status matches
+       reality.
+
+====================================================================
+2. BLOCKING ISSUE — DEMO_GUIDE Step 4 missing dependencies
+====================================================================
+
+DEMO_GUIDE Step 4 installs only:
+    pip install faker fpdf2 PyPDF2 anthropic
+
+But scripts/ingest_documents.py also imports:
+    - requests      (NOT pulled in by anthropic, which uses httpx)
+    - qdrant-client
+
+Result: Step 8 (ingest into Qdrant) fails with ModuleNotFoundError
+on a fresh machine.
+
+FIX:
+    pip install faker fpdf2 PyPDF2 anthropic requests qdrant-client
+
+====================================================================
+3. DOC-VS-CODE MISMATCHES — datasets are not what the docs claim
+====================================================================
+
+The stated theme is "a fictional Spanish-language medical clinic,"
+but only IS-03 (the RAG corpus) is clinic-themed:
+
+  IS-01  Docs say:  "Synthetic clinic emails"
+         Code makes: Real-estate / property-management emails
+                     (rental enquiries, viewing requests,
+                     maintenance for APT-/LOC- property refs)
+                     -> scripts/generate_is01_emails.py
+
+  IS-04  Docs say:  "Patient intake forms"
+         Code makes: LEGAL intake forms for a law firm (Civil,
+                     Laboral, Penal, Comercial cases). Even
+                     generate_all_demo_data.sh labels it
+                     "legal intakes".
+                     -> scripts/generate_is04_intakes.py
+
+  IS-05  Docs say:  "Operations log" (clinic implied)
+         Code makes: Trucking/freight operations log (Peru routes,
+                     cargo types, drivers, freight USD)
+                     -> scripts/generate_is05_operations.py
+
+  AO-01  Docs say:  "LoRA fine-tuning training data" (clinic
+                     implied)
+         Code makes: Expense cost-code classification pairs
+                     (MFG-MAT, LOG-FRT, ADM-OFF, IT-SFT, etc.)
+                     -> scripts/generate_ao01_training_data.py
+
+RECOMMENDATION: The headline RAG feature only uses IS-03, so fix
+the docs (describe datasets honestly) rather than re-theming the
+code — unless a single-scenario clinic demo is required.
+
+====================================================================
+4. SMALLER ISSUES
+====================================================================
+
+4.1  generate_all_demo_data.sh never runs generate_is03_chunked.py,
+     uses the non-resumable generate_is03_procedures.py, and runs
+     scripts in IS-01..IS-05 order while README/DEMO_GUIDE
+     recommend fast-scripts-first. The two paths disagree.
+
+4.2  README claims the IS-03 chunks (is03_chunks/section_*.json)
+     are "the primary RAG corpus - ingested via
+     ingest_documents.py". In reality ingest_documents.py only
+     accepts a PDF and does its own 500-char chunking; the JSON
+     chunk files are never ingested by anything (they exist only to
+     make generation resumable). Doc wording should say the PDF is
+     what gets ingested.
+
+4.3  check_data_quality.py does not validate IS-04 at all, despite
+     docs claiming it "validates all generated datasets."
+
+4.4  ingest_documents.py crashes with IndexError (chunks[0] on an
+     empty list) if the PDF has no extractable text. Add a guard
+     with a clear error message.
+
+4.5  Docker image naming is inconsistent across docs:
+       - LAB_STATUS:  gerardk0/demo-rag:latest
+       - DEMO_GUIDE:  docker.io/hustlerbixprog/robo-ai-agency:test_v1
+       - compose:     local build only
+     Pick one and align.
+
+4.6  Dockerfile.rag copies scripts/ into the RAG image, but the
+     image's requirements.txt lacks anthropic/faker/fpdf2, so those
+     scripts cannot run inside the container. Dead weight; harmless.
+
+4.7  .env.example includes unused GEMINI_API_KEY and
+     OPENROUTER_API_KEY — nothing in the repo reads them.
+
+====================================================================
+5. BOTTOM LINE
+====================================================================
+
+Proceed with the pending LAB_STATUS steps (generate data, validate,
+ingest, test /chat) after adding `requests` and `qdrant-client` to
+the venv. The RAG chat feature — server, ingestion, UI, infra — is
+ready. The main cleanup needed is documentation truthfulness: three
+of the five datasets belong to different business scenarios than
+the "clinic" story told in README/DEMO_GUIDE, which would confuse a
+live demo walkthrough.
+
+====================================================================
+6. ADDENDUM — FIXES APPLIED (2026-07-07)
+====================================================================
+All issues above were subsequently fixed in this session:
+
+[FIXED] 2.   DEMO_GUIDE Step 4 now installs requests + qdrant-client
+[FIXED] 3.   README + DEMO_GUIDE dataset descriptions corrected
+             (IS-01 property emails, IS-04 legal intakes, IS-05
+             freight log, AO-01 cost-code data); IS-03 ingestion
+             wording clarified (PDF is ingested, JSONs are
+             generation checkpoints)
+[FIXED] 4.1  generate_all_demo_data.sh reordered fast-first and now
+             uses the resumable generate_is03_chunked.py
+[FIXED] 4.2  Covered by the IS-03 wording fix above
+[FIXED] 4.3  check_data_quality.py now validates IS-04 (count >= 20
+             and required-field completeness)
+[FIXED] 4.4  ingest_documents.py exits with a clear error when the
+             PDF has no extractable text
+[FIXED] 4.5  Docker image name aligned to gerardk0/demo-rag:latest;
+             local build is now the recommended option
+[FIXED] 4.7  Unused GEMINI/OPENROUTER keys removed from .env.example
+[LEFT AS-IS] 4.6  scripts/ copy in Dockerfile.rag (harmless)
+
+Verified: both edited Python scripts compile; check_data_quality.py
+runs (all FAILs expected — data not yet generated).
+====================================================================

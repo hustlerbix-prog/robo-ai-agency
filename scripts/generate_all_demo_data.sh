@@ -15,24 +15,24 @@ source ~/demo-env/bin/activate
 cd "$LAB_DIR"
 
 echo ""
-echo "=== IS-01: Generating emails ==="
-python scripts/generate_is01_emails.py
+echo "=== IS-05: Generating freight operations CSV (Faker, fast) ==="
+python scripts/generate_is05_operations.py
 
 echo ""
-echo "=== IS-02: Generating invoices ==="
+echo "=== IS-02: Generating invoices (fpdf2, fast) ==="
 python scripts/generate_is02_invoices.py
 
 echo ""
-echo "=== IS-03: Generating clinic procedures manual ==="
-python scripts/generate_is03_procedures.py
+echo "=== IS-01: Generating property-management emails (Claude Haiku) ==="
+python scripts/generate_is01_emails.py
 
 echo ""
-echo "=== IS-04: Generating legal intakes ==="
+echo "=== IS-04: Generating legal intakes (Claude Haiku) ==="
 python scripts/generate_is04_intakes.py
 
 echo ""
-echo "=== IS-05: Generating operations CSV ==="
-python scripts/generate_is05_operations.py
+echo "=== IS-03: Generating clinic procedures manual (Claude Opus, resumable) ==="
+python scripts/generate_is03_chunked.py
 
 echo ""
 echo "=== All demo data generated! ==="

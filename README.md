@@ -1,6 +1,6 @@
 # AI Demo Lab
 
-A self-hosted AI stack demonstrating RAG (Retrieval-Augmented Generation), workflow automation, and synthetic data generation for a fictional Spanish-language medical clinic.
+A self-hosted AI stack demonstrating RAG (Retrieval-Augmented Generation), workflow automation, and synthetic data generation across several fictional Spanish-language businesses. The RAG chat feature is built around a fictional medical clinic (Clinica Santa Elena); the other datasets cover property management, legal intake, freight logistics, and expense classification scenarios.
 
 ---
 
@@ -56,14 +56,14 @@ Ollama is reached by containers via `host.containers.internal:11434`.
 
 | ID | File(s) | Description | Generator |
 |----|---------|-------------|-----------|
-| IS-01 | `documents/is01_emails.json` / `.txt` | Synthetic clinic emails | Claude Haiku via `generate_is01_emails.py` |
-| IS-02 | `documents/is02_invoices_manifest.json` + `sample_invoices/*.pdf` | SaaS-style invoice PDFs | fpdf2 via `generate_is02_invoices.py` |
-| IS-03 | `documents/is03_chunks/section_*.json` | Clinic procedure manual chunks | Claude Haiku via `generate_is03_procedures.py` → chunked by `generate_is03_chunked.py` |
-| IS-04 | `documents/is04_intakes.json` | Patient intake forms | Claude Haiku via `generate_is04_intakes.py` |
-| IS-05 | `documents/is05_operations.csv` | Operations log (Faker data) | `generate_is05_operations.py` (locale: `es`) |
-| AO-01 | *(optional)* | LoRA fine-tuning training data | `generate_ao01_training_data.py` |
+| IS-01 | `documents/is01_emails.json` / `.txt` | Property-management emails (rental enquiries, viewing requests, maintenance) | Claude Haiku via `generate_is01_emails.py` |
+| IS-02 | `documents/is02_invoices_manifest.json` + `sample_invoices/*.pdf` | Mixed-style invoice PDFs (SaaS, LatAm formal, freight, retail, etc.) | fpdf2 via `generate_is02_invoices.py` |
+| IS-03 | `documents/procedimientos_clinica_santa_elena.pdf` + `is03_chunks/section_*.json` | Clinic procedure manual (the RAG corpus) | Claude Opus via `generate_is03_chunked.py` (resumable; section JSONs are generation checkpoints) |
+| IS-04 | `documents/is04_intakes.json` | Legal intake forms (law-firm scenario: Civil, Laboral, Penal, Comercial) | Claude Haiku via `generate_is04_intakes.py` |
+| IS-05 | `documents/is05_operations.csv` | Freight/trucking operations log (Faker data) | `generate_is05_operations.py` (locale: `es`) |
+| AO-01 | *(optional)* | LoRA training data — expense cost-code classification | `generate_ao01_training_data.py` |
 
-The clinic procedures (IS-03) are the primary RAG corpus — ingested into Qdrant via `scripts/ingest_documents.py`.
+The clinic procedure manual PDF (IS-03) is the primary RAG corpus — the **PDF** is ingested into Qdrant via `scripts/ingest_documents.py`, which does its own chunking. The `is03_chunks/*.json` files are resumable-generation checkpoints only; they are not read by the ingestion script.
 
 ---
 
@@ -78,14 +78,14 @@ Open directly in browser; posts to `http://localhost:8080/chat`.
 
 | Script | Purpose |
 |--------|---------|
-| `generate_all_demo_data.sh` | Runs all generators in order |
-| `generate_is01_emails.py` | Emails via Claude Haiku (~2 min) |
+| `generate_all_demo_data.sh` | Runs all generators in order (fast scripts first) |
+| `generate_is01_emails.py` | Property-management emails via Claude Haiku (~2 min) |
 | `generate_is02_invoices.py` | Invoice PDFs via fpdf2 (fast) |
-| `generate_is03_procedures.py` | Procedure manual via Claude Opus (~5 min) |
-| `generate_is03_chunked.py` | Splits procedure manual into JSON chunks |
-| `generate_is04_intakes.py` | Intake forms via Claude Haiku (~2 min) |
-| `generate_is05_operations.py` | Operations CSV via Faker (fast) |
-| `generate_ao01_training_data.py` | LoRA training data (optional, costs API credits) |
+| `generate_is03_chunked.py` | Procedure manual via Claude Opus (~5 min) — resumable; saves each section to JSON, assembles the PDF when all 10 are done |
+| `generate_is03_procedures.py` | Non-resumable alternative to the above (single run, no checkpoints) |
+| `generate_is04_intakes.py` | Legal intake forms via Claude Haiku (~2 min) |
+| `generate_is05_operations.py` | Freight operations CSV via Faker (fast) |
+| `generate_ao01_training_data.py` | LoRA cost-code training data (optional, costs API credits) |
 | `check_data_quality.py` | Validates all generated datasets |
 | `ingest_documents.py` | Embeds PDF chunks → loads into Qdrant |
 
@@ -126,7 +126,7 @@ python scripts/generate_is05_operations.py   # Faker, fast
 python scripts/generate_is02_invoices.py     # fpdf2, fast
 python scripts/generate_is01_emails.py       # Claude Haiku, ~2 min
 python scripts/generate_is04_intakes.py      # Claude Haiku, ~2 min
-python scripts/generate_is03_procedures.py   # Claude Opus, ~5 min
+python scripts/generate_is03_chunked.py      # Claude Opus, ~5 min (resumable — re-run if it crashes)
 
 # Validate
 python scripts/check_data_quality.py
@@ -199,7 +199,7 @@ cd ~/demo-lab
 source ~/demo-env/bin/activate
 set -a && source .env && set +a
 
-# IS-05: Operations log — pure Faker, no API cost, runs in seconds
+# IS-05: Freight operations log — pure Faker, no API cost, runs in seconds
 python scripts/generate_is05_operations.py
 # Output: documents/is05_operations.csv
 
@@ -207,23 +207,22 @@ python scripts/generate_is05_operations.py
 python scripts/generate_is02_invoices.py
 # Output: documents/sample_invoices/*.pdf + is02_invoices_manifest.json
 
-# IS-01: Clinic emails — uses Claude Haiku, ~2 min, costs API credits
+# IS-01: Property-management emails — uses Claude Haiku, ~2 min, costs API credits
 python scripts/generate_is01_emails.py
 # Output: documents/is01_emails.json + is01_emails.txt
 
-# IS-04: Patient intake forms — uses Claude Haiku, ~2 min
+# IS-04: Legal intake forms — uses Claude Haiku, ~2 min
 python scripts/generate_is04_intakes.py
 # Output: documents/is04_intakes.json
 
-# IS-03: Procedure manual — uses Claude Opus, ~5 min, higher API cost
-python scripts/generate_is03_procedures.py
-# Output: documents/procedimientos_clinica_santa_elena.pdf
-
-# IS-03 (chunked): Split procedure PDF into JSON chunks for ingestion
+# IS-03: Clinic procedure manual — uses Claude Opus, ~5 min, higher API cost
+# Resumable: each section is checkpointed to documents/is03_chunks/section_*.json;
+# re-run after a crash and it skips completed sections, then assembles the PDF.
 python scripts/generate_is03_chunked.py
-# Output: documents/is03_chunks/section_*.json
+# Output: documents/procedimientos_clinica_santa_elena.pdf (+ .txt and section JSONs)
+# (Non-resumable alternative: python scripts/generate_is03_procedures.py)
 
-# AO-01: LoRA training data (optional)
+# AO-01: LoRA training data — expense cost-code classification (optional)
 python scripts/generate_ao01_training_data.py
 # Output: lora/ directory with JSONL training pairs
 ```

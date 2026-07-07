@@ -72,26 +72,28 @@ ollama list
 ```bash
 python -m venv ~/demo-env
 source ~/demo-env/bin/activate
-pip install faker fpdf2 PyPDF2 anthropic
+pip install faker fpdf2 PyPDF2 anthropic requests qdrant-client
 ```
 
 ---
 
 ## Step 5 — Start Services
 
-**Option A — Pull pre-built image from Docker Hub (recommended)**
+**Option A — Build image locally (recommended)**
+
+```bash
+podman-compose --env-file .env up -d --build
+# or explicitly:
+# podman build -t gerardk0/demo-rag:latest -f Dockerfile.rag .
+# podman-compose --env-file .env up -d
+```
+
+**Option B — Pull pre-built image from Docker Hub** (only if the image has been pushed — see the optional push step in LAB_STATUS)
 
 ```bash
 # Edit docker-compose.yml: replace the rag-server build section with:
-#   image: docker.io/hustlerbixprog/robo-ai-agency:test_v1
+#   image: docker.io/gerardk0/demo-rag:latest
 
-podman-compose --env-file .env up -d
-```
-
-**Option B — Build image locally**
-
-```bash
-podman build -t demo-rag:latest -f Dockerfile.rag .
 podman-compose --env-file .env up -d
 ```
 
@@ -142,22 +144,21 @@ set -a && source .env && set +a
 Run each script **one at a time** (VRAM/CPU constraint — wait for each to finish):
 
 ```bash
-# 1. Operations log — Faker only, ~10 seconds
+# 1. Freight operations log — Faker only, ~10 seconds
 python scripts/generate_is05_operations.py
 
 # 2. Invoice PDFs — fpdf2 only, ~10 seconds
 python scripts/generate_is02_invoices.py
 
-# 3. Clinic emails — Claude Haiku, ~2 minutes
+# 3. Property-management emails — Claude Haiku, ~2 minutes
 python scripts/generate_is01_emails.py
 
-# 4. Patient intake forms — Claude Haiku, ~2 minutes
+# 4. Legal intake forms — Claude Haiku, ~2 minutes
 python scripts/generate_is04_intakes.py
 
-# 5. Procedure manual PDF — Claude Opus, ~5 minutes
-python scripts/generate_is03_procedures.py
-
-# 6. Chunk the procedure manual into JSON sections
+# 5. Clinic procedure manual PDF — Claude Opus, ~5 minutes
+#    Resumable: sections are checkpointed to documents/is03_chunks/;
+#    if it crashes, re-run and it resumes, then assembles the PDF.
 python scripts/generate_is03_chunked.py
 ```
 
@@ -278,7 +279,7 @@ Chat with the model directly — no RAG, no context, just the base model. Useful
 python scripts/generate_ao01_training_data.py
 ```
 
-Generates question/answer pairs in JSONL format for fine-tuning a model on clinic-specific knowledge. Output goes to `lora/`.
+Generates instruction/input/output pairs in JSONL format for fine-tuning a model on expense cost-code classification (MFG/LOG/ADM/IT codes). Output goes to `lora/`.
 
 ---
 

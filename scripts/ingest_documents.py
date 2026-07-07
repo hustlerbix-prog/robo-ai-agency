@@ -65,6 +65,9 @@ def main():
     print(f"Extracting text from {pdf_path}...")
     text = extract_text_from_pdf(pdf_path)
     chunks = chunk_text(text)
+    if not chunks:
+        print(f"Error: no extractable text found in {pdf_path} — nothing to ingest.")
+        sys.exit(1)
     print(f"Created {len(chunks)} chunks")
 
     print("Embedding first chunk to get dimensions...")

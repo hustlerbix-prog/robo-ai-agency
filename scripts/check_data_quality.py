@@ -39,6 +39,20 @@ def main():
     except Exception as e:
         check("IS-03 procedures PDF", False, str(e))
 
+    # is04_intakes.json
+    try:
+        with open("documents/is04_intakes.json") as f:
+            intakes = json.load(f)
+        check("IS-04 intakes count >= 20", len(intakes) >= 20, f"{len(intakes)} intakes found")
+        required = {"nombre", "email", "telefono", "tipo_asunto", "descripcion", "urgencia"}
+        complete = all(
+            required <= set(i) and all(str(i[k]).strip() for k in required)
+            for i in intakes
+        )
+        check("IS-04 intakes fields complete", complete)
+    except Exception as e:
+        check("IS-04 intakes.json readable", False, str(e))
+
     # is05_operations.csv unpaid completed trips
     try:
         with open("documents/is05_operations.csv") as f:
